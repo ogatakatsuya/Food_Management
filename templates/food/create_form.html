@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-4">Add Ingredients</h1>
+    {% from "_formhelpers.html" import render_field %}
+    <form method="POST" action="{{ url_for('food.create') }}" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ render_field(form.name, class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ render_field(form.category, class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ render_field(form.date, class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ render_field(form.memo, class="form-control", rows=5) }}
+        </div>
+        <div class="mb-3">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+
+    <a href="{{ url_for('food.index') }}" class="btn btn-secondary mt-2">Cancel</a>
+{% endblock %}

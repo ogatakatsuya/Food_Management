@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1 class="my-4">Login</h1>
+    {% from "_formhelpers.html" import render_field %}
+    <form method="POST" action="{{ url_for('auth.login') }}" novalidate>
+        {{ form.hidden_tag() }}
+        {{ render_field(form.username, class="form-control") }}
+        {{ render_field(form.password, class="form-control") }}
+        <br>
+        <!-- ▼▼▼▼▼ flashメッセージ ▼▼▼▼▼ -->
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <!-- ▲▲▲▲▲ flashメッセージ ▲▲▲▲▲ -->
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+    <p class="my-3">
+        If you do not have an account, please register
+        <a href="{{ url_for('auth.register') }}">here</a>.
+    </p>
+</div>
+{% endblock %}
