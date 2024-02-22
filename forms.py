@@ -23,7 +23,8 @@ def validate_password(self, password):
             any(c in '!@#$%*^()' for c in password.data)):
         raise ValidationError('Password must contain alphanumeric characters and symbols:! `#$%*^().')
 
-class SignUpForm(LoginForm):
+class SignUpForm(FlaskForm):
+    username = StringField('User Name:', validators=[DataRequired('This field is required.')])
     password = PasswordField('Password:',validators=[Length(4,20,'Password must be at 4~20 characters.'),EqualTo('confirm_password','Password does not match.')])
     confirm_password = PasswordField('Confirm Password:')
     submit = SubmitField('Signup')

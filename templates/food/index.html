@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <style>
+        .Expire_date{
+            color: green;
+        }
+    </style>
     <h1 class="my-4">Food List</h1>
-    {% if memos == [] %}
+    {% if foods == [] %}
         <p>No Food Here</p>
     {% else %}
         <ul class="list-group mb-4">
             {% for food in foods %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{ food.name }}
+                    <strong>{{ food.name }}</strong>
+                    <div class="Expire_date">
+                        expiration_date:{{food.date}}
+                    </div>
                     <div>
                         <a href="{{ url_for('food.update', food_id=food.id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <a href="{{ url_for('food.delete', food_id=food.id) }}" class="btn btn-danger btn-sm">Delete</a>
