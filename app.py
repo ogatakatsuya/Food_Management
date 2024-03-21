@@ -14,7 +14,7 @@ migrate = Migrate(app,db)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_message = "認証していません，ログインしてください"
+login_manager.login_message = "plese login"
 login_manager.login_view = "auth.login"
 
 app.register_blueprint(auth_bp)
