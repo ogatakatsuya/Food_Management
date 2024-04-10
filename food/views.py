@@ -42,7 +42,7 @@ def update(food_id):
         target_data.memo = form.memo.data
         db.session.commit()
         
-        flash("Change Succeeded!")
+        flash("Edit Succeeded!")
         
         return redirect(url_for("food.index"))
     return render_template("food/update_form.html",form=form, edit_id=target_data.id)

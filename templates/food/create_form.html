@@ -17,10 +17,9 @@
         <div class="mb-3">
             {{ render_field(form.memo, class="form-control", rows=5) }}
         </div>
-        <div class="mb-3 text-right">
-            {{ form.submit(class="btn btn-primary") }}
+        <div class="mb-3 d-flex justify-content-end">
+            {{ form.submit(class="btn btn-primary me-2") }}
+            <a href="{{ url_for('food.index') }}" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
-
-    <a href="{{ url_for('food.index') }}" class="btn btn-secondary mt-2">Cancel</a>
 {% endblock %}

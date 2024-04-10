@@ -2,15 +2,19 @@
 
 {% block content %}
     <style>
-        .Expire_date{
+        .Expire_date {
             color: green;
+            text-align: center;
         }
-        .list-group{
-            width: 80%;
+        .list-group {
+            width: 60%;
             margin: auto;
         }
-        h1{
+        h1 {
             text-align: center;
+        }
+        li {
+            width: auto;
         }
     </style>
     
@@ -19,11 +23,11 @@
         {% if foods == [] %}
             <p>No Food Here</p>
         {% else %}
-            <ul class="list-group mb-4 nav nav-pills nav-justified">
+            <ul class="list-group mb-4">
                 {% for food in foods %}
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <strong>{{ food.name }}</strong>
-                        <div class="Expire_date">
+                        <div class="Expire_date d-flex justify-content-center flex-column align-items-center">
                             Expire Date:{{food.date}}
                         </div>
                         <div>
@@ -34,13 +38,11 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <!-- ▼▼▼▼▼ flashメッセージ ▼▼▼▼▼ -->
         {% for message in get_flashed_messages() %}
         <div class="alert alert-info">
             {{ message }}
         </div>
         {% endfor %}
-        <!-- ▲▲▲▲▲ flashメッセージ ▲▲▲▲▲ -->
         <div class="text-center">
             <a href="{{ url_for('food.create') }}" class="btn btn-primary" role="button">Add</a>
         </div>
