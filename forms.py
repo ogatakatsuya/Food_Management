@@ -12,6 +12,11 @@ class FoodForm(FlaskForm):
     memo = TextAreaField('Memo:')
     submit = SubmitField('Submit')
     
+class FoodNeededForm(FlaskForm):
+    name = StringField('Name:',validators=[DataRequired('This field is required.')])
+    memo = TextAreaField('Memo:')
+    submit = SubmitField('Submit')
+    
 class LoginForm(FlaskForm):
     username = StringField('User Name:', validators=[DataRequired('This field is required.')])
     password = PasswordField('Password:',validators=[Length(4,20,'Password must be at 4~20 characters.')])

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-4">Edit</h1>
+    {% from "_formhelpers.html" import render_field %}
+    <form method="POST" action="{{ url_for('wish.update_wish', food_id=edit_id) }}" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ render_field(form.name, class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ render_field(form.memo, class="form-control", rows=5) }}
+        </div>
+        <div class="mb-3 d-flex justify-content-end">
+            {{ form.submit(class="btn btn-primary me-2") }}
+            <a href="{{ url_for('wish.index_wish') }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+{% endblock %}

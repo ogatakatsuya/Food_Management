@@ -1,11 +1,11 @@
 from flask import Blueprint,render_template, request, redirect, url_for, flash
-from models import db, FOOD, User
-from forms import FoodForm
+from models import db, FOOD, User, FOOD_NEEDED
+from forms import FoodForm,FoodNeededForm
 from flask_login import login_required, current_user
 
 food_bp = Blueprint('food', __name__, url_prefix='/food')
 
-@food_bp.route("/food/")
+@food_bp.route("/index")
 @login_required
 def index():
     foods = FOOD.query.filter_by(user_id = current_user.id).all()
