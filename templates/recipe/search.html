@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+    <div class="container">
+        <h1 class="my-4">Find Today's menu</h1>
+        <div class="d-flex justify-content-center">
+            <div class="col-5">
+                <input type="text" class="form-control form-control-lg" id="input1" placeholder="recipe">
+            </div>
+            <div class="col-auto">
+                <a href="" class="btn btn-primary btn-lg">Search</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

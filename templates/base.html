@@ -27,8 +27,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <li><a class="nav-link" href="{{url_for('food.index')}}">FoodList</a></li>
-                        <li><a class="nav-link" href="{{url_for('wish.index_wish')}}">WishList</a></li>
+                        <li><a class="nav-link" href="{{ url_for('food.index') }}">FoodList</a></li>
+                        <li><a class="nav-link" href="{{ url_for('wish.index_wish') }}">WishList</a></li>
+                        <li><a class="nav-link" href="{{ url_for('recipe.search') }}">Recipe</a></li>
                         <li><a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a></li>
                     </li>
                 </ul>
