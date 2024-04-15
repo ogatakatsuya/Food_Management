@@ -19,8 +19,6 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_message = "plese login"
 login_manager.login_view = "auth.login"
-if(current_user):
-    logout_user()
 
 app.register_blueprint(auth_bp)
 app.register_blueprint(food_bp)
