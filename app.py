@@ -6,6 +6,7 @@ from auth.views import auth_bp
 from food.views import food_bp
 from wish.views import wish_bp
 from recipe.views import recipe_bp
+from flask_login import current_user, logout_user
 
 app = Flask(__name__)
 
@@ -18,6 +19,8 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_message = "plese login"
 login_manager.login_view = "auth.login"
+if(current_user):
+    logout_user()
 
 app.register_blueprint(auth_bp)
 app.register_blueprint(food_bp)
